@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
@@ -18,7 +17,7 @@ namespace G2GPullSync.Github
         public static void GetAllInfo()
         {
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("GitHub.json");
+                .AddJsonFile("Profile.json");
 
             var configuration = builder.Build();
             Name = configuration.GetSection("name").Value;

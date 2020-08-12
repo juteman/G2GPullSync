@@ -1,4 +1,6 @@
 ﻿using System;
+using G2GPullSync.Github;
+using RestSharp;
 
 namespace G2GPullSync
 {
@@ -6,9 +8,16 @@ namespace G2GPullSync
     {
         static void Main(string[] args)
         {
-            Github.BotInfo.GetAllInfo();
-            Console.WriteLine(Github.BotInfo.GetName());
-            Console.WriteLine(Github.BotInfo.GetToken());
+            BotInfo.GetAllInfo();
+            Console.WriteLine(BotInfo.GetName());
+            Console.WriteLine(BotInfo.GetToken());
+            GithubClient.AddHttpAuthenticator(BotInfo.GetName(), BotInfo.GetToken());
+
+            var request = new RestRequest("/users/juteman/repos");
+
+            var userRepos = GithubClient.Client.Get(request);
+            
+            Console.WriteLine(userRepos.Content);
         }
     }
 }
