@@ -14,8 +14,10 @@ Create a json file `Profile.json` in the binary directory
 format like this
 ```json
 {
-    "name": "[your name]",
-    "token": "[your token]"
+    "bot_name": "[your bot name]",
+    "token": "[your bot token]",
+    "owner_name": "[the owner of repos name]",
+    "is_user": [true if repos owner is user, false if repos owner is org]
 }
 ```
 the program will read the information from the json file for authenticator
