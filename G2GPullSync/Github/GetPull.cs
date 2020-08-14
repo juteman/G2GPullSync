@@ -17,7 +17,7 @@ namespace G2GPullSync.Github
         public async Task GetPullRequestAsync(string repoName)
         {
             int page = 1;
-            bool status = false;
+            bool status;
             do
             {
                 var response = await GithubClient.GetResponseAsync<List<PullRequestDesc>>(SetRequest(repoName, page));

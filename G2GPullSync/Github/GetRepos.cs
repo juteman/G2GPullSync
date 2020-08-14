@@ -33,7 +33,7 @@ namespace G2GPullSync.Github
         public async Task GetReposAsync(OwnerType ownerType)
         {
             int page = 1;
-            bool status = false;
+            bool status;
             do
             {
                 var response = await GithubClient.GetResponseAsync<List<ReposDesc>>(SetRequest(ownerType, page));
